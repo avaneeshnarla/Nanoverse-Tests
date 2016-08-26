@@ -3,6 +3,7 @@ package nanoverse.runtime.agent.action.stochastic;
 import nanoverse.runtime.agent.Agent;
 import nanoverse.runtime.agent.action.Action;
 import nanoverse.runtime.agent.action.NullAction;
+import nanoverse.runtime.control.halt.ProbabilityExceededEvent;
 import nanoverse.runtime.layers.LayerManager;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +54,7 @@ public class NormalizedDynamicActionRangeMapTest extends TestBase {
         assertSame(a2, actual);
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = ProbabilityExceededEvent.class)
     public void weightOverOneThrows() throws Exception {
         Action a3 = mock(Action.class);
         ProbabilitySupplier p3 = mockProbabilitySupplier(0.5);

@@ -20,12 +20,21 @@
 
 package nanoverse.runtime.geometry.geometry;
 
-import nanoverse.runtime.control.identifiers.*;
-import nanoverse.runtime.geometry.*;
+import nanoverse.runtime.control.identifiers.Coordinate;
+import nanoverse.runtime.control.identifiers.Coordinate2D;
+import nanoverse.runtime.control.identifiers.Coordinate3D;
+import nanoverse.runtime.control.identifiers.Flags;
+import nanoverse.runtime.geometry.Geometry;
+import nanoverse.runtime.geometry.MockGeometry;
 import nanoverse.runtime.geometry.boundaries.Boundary;
-import nanoverse.runtime.geometry.lattice.*;
-import nanoverse.runtime.geometry.shape.*;
-import org.junit.*;
+import nanoverse.runtime.geometry.lattice.Lattice;
+import nanoverse.runtime.geometry.lattice.MockLattice;
+import nanoverse.runtime.geometry.lattice.RectangularLattice;
+import nanoverse.runtime.geometry.shape.MockShape;
+import nanoverse.runtime.geometry.shape.Rectangle;
+import nanoverse.runtime.geometry.shape.Shape;
+import org.junit.Before;
+import org.junit.Test;
 import test.LegacyTest;
 
 import static org.junit.Assert.*;
@@ -617,6 +626,10 @@ public class GeometryTest extends LegacyTest {
             return new Coordinate2D(x, y, flags);
         }
 
+        public Coordinate[] apply(Coordinate c, Coordinate d) {
+            Coordinate[] cd = {c, d};
+            return cd;
+        }
         @Override
         public boolean isInfinite() {
             return false;
